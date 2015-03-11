@@ -21,8 +21,7 @@ class Jogador(object):
     
     def setImagem(self,time):
         pass
-    
-    
+       
     def jogar(self):
         pass
         

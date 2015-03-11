@@ -19,3 +19,20 @@ Sobre comentários:
 
 1 - Toda classe deve possuir um comentário no começo explicando em linhas gerais as responsabilidades da classe.
 
+Pacotes:
+
+classes -> Guarda as classes do jogo. Pode ser mais elaborado depois
+
+Módulos:
+
+jogador.py -> referente ao jogador.
+tabuleiro.py -> referente ao tabuleiro.
+jogo.py -> controlador.
+
+Classes:
+
+Jogador: Classe que representa um jogador. Possui nome, imagem e pontuacao. Faz jogadas e carrega a imagem(bolinha ou x).
+Tabuleiro: Classe que representa o tabuleiro do jogo da velha. Possui uma imagem e casas. Atualiza o estado das suas casas.
+Jogo: Classe Controladora do Jogo. Responsabilidades ainda não definidas. (Aqui entra um debate huehuehue). 
+
+
