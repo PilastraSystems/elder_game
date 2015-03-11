@@ -3,7 +3,7 @@ Projeto do Jogo da Velha.
 Membros atuantes até o momento(Serve como teste de commit huehue):
 
 Victor 'Vitão' Hugo
-
+Racicley 'Cley'
 
 Nesse arquivo texto estarão incluídas as convencoes do código.
 
