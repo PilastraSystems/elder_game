@@ -1,0 +1,13 @@
+Nesse arquivo texto estarão incluídas as convencoes do código.
+
+
+Sobre nomes:
+
+1 - nomes de módulos em minusculo e com underscore
+2 - variáveis e métodos em camelCase.
+3 - Classes em maiúsculo.
+
+Sobre comentários:
+
+1 - Toda classe deve possuir um comentário no começo explicando em linhas gerais as responsabilidades da classe.
+
