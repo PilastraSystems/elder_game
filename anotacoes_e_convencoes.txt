@@ -1,4 +1,12 @@
+Projeto do Jogo da Velha.
+
+Membros atuantes até o momento(Serve como teste de commit huehue):
+
+Victor 'Vitão' Hugo
+
+
 Nesse arquivo texto estarão incluídas as convencoes do código.
+
 
 
 Sobre nomes:
