@@ -1,4 +1,17 @@
-Projeto do Jogo da Velha.
+Projeto do Jogo da Velha:
+
+######################################################################
+
+TODO:
+Refinar a estrutura de arquivos do projeto.
+Animação Inicial.
+Ler preferências de um arquivo.
+Sistema de conversão entre coordenadas cartesianas e as casas do tabuleiro
+Indicador na tela da vez do Jogador
+Apagar Jogada
+Tela de Opções
+
+#######################################################################
 
 Membros atuantes até o momento(Serve como teste de commit huehue):
 
@@ -33,6 +46,7 @@ Classes:
 
 Jogador: Classe que representa um jogador. Possui nome, imagem e pontuacao. Faz jogadas e carrega a imagem(bolinha ou x).
 Tabuleiro: Classe que representa o tabuleiro do jogo da velha. Possui uma imagem e casas. Atualiza o estado das suas casas.
-Jogo: Classe Controladora do Jogo. Responsabilidades ainda não definidas. (Aqui entra um debate huehuehue). 
+Jogo: Classe Controladora do Jogo. Responsabilidades ainda não definidas. (Aqui entra um debate huehuehue).
+
 
 

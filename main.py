@@ -1,11 +1,15 @@
+#-*-coding: cp1252 -*-
 
-
-import pygame 
+import pygame,sys
+from pygame.locals import *  # @UnusedWildImport
+from classes.jogo import Jogo
 
 
 def main():
-    print pygame #Teste de Import
-    pass
+    jogo = Jogo()
+    jogo.iniciarTabuleiro()
+    jogo.loop()
+    
 
 if __name__ == '__main__':
     main()
