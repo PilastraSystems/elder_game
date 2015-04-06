@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
 encoding//classes/jogo.py=cp1252
+encoding//classes/tabuleiro.py=cp1252
 encoding/exemplos_pygame.py=cp1252
 encoding/main.py=cp1252
+encoding/status_projeto.py=cp1252

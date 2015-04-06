@@ -1,41 +1,40 @@
 #-*-coding: cp1252 -*-
 
-import pygame.draw
 import sys
 from constantes import *  # @UnusedWildImport
 from pygame.locals import *  # @UnusedWildImport
 from classes.jogador import Jogador
+from classes.tabuleiro import Tabuleiro
 
 class Jogo(object):
     '''
     Classe Controladora do Jogo. Responsabilidades ainda não definidas.
     (Aqui entra um debate huehuehue).
     '''
-    def __init__(self):
+    def __init__(self,modo):
         pygame.init()
-        self.tabuleiro = pygame.display.set_mode((600,600))
-        self.vez = JOGADOR1
+        pygame.display.set_caption("Elders Game")
+        self.tela = pygame.display.set_mode((800,600))
+        self.tabuleiro = Tabuleiro(300,(200,200))
+        self.tabuleiro.iniciarTabuleiro(self.tela)
         self.jogadores = [Jogador("recursos/imagens/img1.png"),Jogador("recursos/imagens/img2.png")]
+        self.vez = JOGADOR1
         self.musica = pygame.mixer.music
-        self.musica.load("recursos/BGM/music.mp3")
-    
-    def iniciarTabuleiro(self):
-        '''Inicia o tabuleiro. 
-        TODO: Ler preferências de um arquivo.
-        TODO: Sistema de conversão entre coordenadas cartesianas e as casas do tabuleiro
-        '''
-        pygame.draw.line(self.tabuleiro,RED,(200,0),(200,600), 4)
-        pygame.draw.line(self.tabuleiro,RED,(400,0),(400,600), 4)
-        pygame.draw.line(self.tabuleiro,RED,(0,200),(600,200), 4)
-        pygame.draw.line(self.tabuleiro,RED,(0,400),(600,400), 4)
-        self.musica.play()
-    
-    def getJogada(self,vez,posicao):
-        '''Desenha na tela a jogada e passa a vez para outro jogador.'''
-        jogada = self.jogadores[vez].imagem
-        self.tabuleiro.blit(jogada,posicao)
+        if not modo == DEBUG:
+            self.musica.load("recursos/BGM/music.mp3")
+            self.musica.play()
+            
+    def passarVez(self):
         self.vez = JOGADOR2 if self.vez == JOGADOR1 else JOGADOR1
-    
+        
+    def getJogada(self,posicao):
+        '''Desenha na tela a jogada e passa a vez para outro jogador.'''
+        jogada = self.jogadores[self.vez].imagem
+        posicao = self.tabuleiro.atualizarTabuleiro(posicao)
+        if posicao:
+            self.tela.blit(jogada,posicao)
+            self.passarVez()
+        
     def loop(self):
         while True:
             for event in pygame.event.get():
@@ -45,5 +44,5 @@ class Jogo(object):
                     sys.exit()
                 elif event.type == MOUSEBUTTONDOWN:
                     if event.button == 1:
-                        self.getJogada(self.vez,event.pos)
+                        self.getJogada(event.pos)
             pygame.display.update()
