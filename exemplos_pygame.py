@@ -2,6 +2,7 @@
 
 import pygame,sys
 from pygame.locals import *  # @UnusedWildImport
+from time import sleep
 
 
 def main():
@@ -13,13 +14,26 @@ def main():
     RED = pygame.Color(255,0,0)
     GREEN = pygame.Color(0,255,0)
     BLUE  = pygame.Color(0,0,255)
+    BLACK = pygame.Color(0,0,0)
     retangulo = pygame.Rect((180,100,40,40))
     
     # Textos
-    fonte = pygame.font.Font('freesansbold.ttf',24)
-    textoSurface  = fonte.render('Pontuação: ',True,BLUE)
-    texto = textoSurface.get_rect()
-    texto.center = (100,100)
+    fonte = pygame.font.Font('freesansbold.ttf',48)
+    elderSurface = fonte.render('Elder',True,BLUE)
+    fonte = pygame.font.Font('freesansbold.ttf',36)
+    gameSurface = fonte.render('Game',True,BLUE)
+    DISPLAYSURF.blit(elderSurface,(300,300))
+    pygame.display.update()
+    sleep(1)
+    DISPLAYSURF.fill(BLACK)
+    DISPLAYSURF.blit(gameSurface,(300,450))
+    sleep(1)
+    DISPLAYSURF.blit(gameSurface,(300,450))
+    pygame.display.update()
+    DISPLAYSURF.fill(BLACK)
+    sleep(1)
+    
+    
     
     # Desenhos
     pygame.draw.line(DISPLAYSURF,RED,(200,0),(200,600), 4)
@@ -28,8 +42,8 @@ def main():
     pygame.draw.line(DISPLAYSURF,RED,(0,400),(600,400), 4)
     
     # Imagens
-    imagem = pygame.image.load("recursos/imagens/django.png")
-    imagem2 = pygame.image.load("recursos/imagens/windows.png")
+    imagem = pygame.image.load("recursos/imagens/img1.png")
+    imagem2 = pygame.image.load("recursos/imagens/img2.png")
     print dir(imagem)
     
     # Música

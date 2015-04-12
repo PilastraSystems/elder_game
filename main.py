@@ -6,6 +6,7 @@ from classes.jogo import Jogo
 
 def main():
     jogo = Jogo(not DEBUG)
+    jogo.opening()
     jogo.loop()
     
 if __name__ == '__main__':

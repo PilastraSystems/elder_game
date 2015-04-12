@@ -2,9 +2,12 @@ Projeto do Jogo da Velha:
 
 ######################################################################
 
+Linhas 5/4/15: 232
+Linhas 12/4/15: 281
+
 TODO:
 Refinar a estrutura de arquivos do projeto
-Animação Inicial
+[OK] Animação Inicial
 Ler preferências de um arquivo
 Padronizar tamanho das imagens
 [OK] Sistema de conversão entre coordenadas cartesianas e as casas do tabuleiro

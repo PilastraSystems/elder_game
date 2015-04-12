@@ -5,6 +5,8 @@ from constantes import *  # @UnusedWildImport
 from pygame.locals import *  # @UnusedWildImport
 from classes.jogador import Jogador
 from classes.tabuleiro import Tabuleiro
+from time import sleep
+from classes.som import Som
 
 class Jogo(object):
     '''
@@ -15,14 +17,10 @@ class Jogo(object):
         pygame.init()
         pygame.display.set_caption("Elders Game")
         self.tela = pygame.display.set_mode((800,600))
-        self.tabuleiro = Tabuleiro(300,(200,200))
-        self.tabuleiro.iniciarTabuleiro(self.tela)
+        self.tabuleiro = Tabuleiro(300,(240,190))
         self.jogadores = [Jogador("recursos/imagens/img1.png"),Jogador("recursos/imagens/img2.png")]
         self.vez = JOGADOR1
-        self.musica = pygame.mixer.music
-        if not modo == DEBUG:
-            self.musica.load("recursos/BGM/music.mp3")
-            self.musica.play()
+        self.musica = Som(None,{'main': "recursos/BGM/music.ogg"},{'DEBUG': modo})
             
     def passarVez(self):
         self.vez = JOGADOR2 if self.vez == JOGADOR1 else JOGADOR1
@@ -39,10 +37,28 @@ class Jogo(object):
         while True:
             for event in pygame.event.get():
                 if event.type == QUIT:
-                    self.musica.stop()
+                    self.musica.stopMusica()
                     pygame.quit()
                     sys.exit()
                 elif event.type == MOUSEBUTTONDOWN:
                     if event.button == 1:
                         self.getJogada(event.pos)
             pygame.display.update()
+    
+    def opening(self):
+        fonte = pygame.font.Font('freesansbold.ttf',80)
+        elderSurface = fonte.render('Elder',True,BLUE)
+        fonte = pygame.font.Font('freesansbold.ttf',80)
+        gameSurface = fonte.render('Game',True,BLUE)
+        self.tela.blit(elderSurface,(240,100))
+        pygame.display.update()
+        sleep(1)
+        self.tela.fill(BLACK)
+        self.tela.blit(gameSurface,(240,450))
+        pygame.display.update()
+        sleep(3/2.)
+        self.tela.fill(BLACK)
+        pygame.display.update()
+        sleep(1)
+        self.tabuleiro.iniciarTabuleiro(self.tela)
+        self.musica.playMusica('main')
