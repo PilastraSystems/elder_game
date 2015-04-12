@@ -8,7 +8,9 @@ Linhas 12/4/15: 281
 TODO:
 Refinar a estrutura de arquivos do projeto
 [OK] Animação Inicial
-Ler preferências de um arquivo
+[OK] Ler preferências de um arquivo
+Refinar arquivo de configurações
+Cada Entidade deve ler o dicionário de configurações
 Padronizar tamanho das imagens
 [OK] Sistema de conversão entre coordenadas cartesianas e as casas do tabuleiro
 Indicador na tela da vez do Jogador
