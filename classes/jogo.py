@@ -7,6 +7,7 @@ from classes.jogador import Jogador
 from classes.tabuleiro import Tabuleiro
 from time import sleep
 from classes.som import Som
+import re
 
 class Jogo(object):
     '''
@@ -16,11 +17,25 @@ class Jogo(object):
     def __init__(self,modo):
         pygame.init()
         pygame.display.set_caption("Elders Game")
-        self.tela = pygame.display.set_mode((800,600))
+        self.configuracoes = self.carregarConfiguracoes(modo)
+        self.tela = pygame.display.set_mode((self.configuracoes['WIDTH'],self.configuracoes['HEIGHT']))
         self.tabuleiro = Tabuleiro(300,(240,190))
         self.jogadores = [Jogador("recursos/imagens/img1.png"),Jogador("recursos/imagens/img2.png")]
         self.vez = JOGADOR1
-        self.musica = Som(None,{'main': "recursos/BGM/music.ogg"},{'DEBUG': modo})
+        self.musica = Som(None,{'main': "recursos/BGM/music.ogg"},self.configuracoes)
+        
+    def carregarConfiguracoes(self,debug):
+        arquivo = open(CONF_PATH,"r")
+        configuracoes = {}
+        for conf in arquivo.readlines():
+            temp = re.split("\s",conf)
+            try:
+                configuracoes[temp[0]] = int(temp[1])
+            except ValueError:
+                configuracoes[temp[0]] = temp[1]
+        arquivo.close()
+        configuracoes['DEBUG'] = debug
+        return configuracoes
             
     def passarVez(self):
         self.vez = JOGADOR2 if self.vez == JOGADOR1 else JOGADOR1
